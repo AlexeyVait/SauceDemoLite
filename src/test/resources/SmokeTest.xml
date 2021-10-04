@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke test suite" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="tests.AnnotationTransformer"/>
+    </listeners>
+
+
+    <test name="Group 1">
+        <parameter name="browser" value="chrome"/>
+        <groups>
+            <run>
+                <include name="Smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.ProductsTest"/>
+            <class name="tests.CheckoutTest"/>
+            <class name="tests.CheckoutOverviewTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="Group 2">
+        <parameter name="browser" value="edge"/>
+        <groups>
+            <run>
+                <include name="Smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.ProductsTest"/>
+            <class name="tests.CheckoutTest"/>
+            <class name="tests.CheckoutOverviewTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+</suite>
